@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsageMeter", "UsageMeter\UsageMeter.csproj", "{758ED63D-CECF-45F3-9D6E-2F93E5ED611C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{758ED63D-CECF-45F3-9D6E-2F93E5ED611C}.Debug|x86.ActiveCfg = Debug|x86
+		{758ED63D-CECF-45F3-9D6E-2F93E5ED611C}.Debug|x86.Build.0 = Debug|x86
+		{758ED63D-CECF-45F3-9D6E-2F93E5ED611C}.Release|x86.ActiveCfg = Release|x86
+		{758ED63D-CECF-45F3-9D6E-2F93E5ED611C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,27 @@
+MAIN ICON "msgbox.ico"
+
+1 VERSIONINFO
+FILEVERSION 1,0,0,0
+PRODUCTVERSION 1,0,0,0
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName","Knox Microsystems"
+            VALUE "FileDescription","Custom MFC MessageBox"
+            VALUE "FileVersion","1.0"
+            VALUE "InternalName","Custom MessageBox"
+            VALUE "LegalCopyright","Copyright © Matthew Knox 2011-Present. All rights reserved."
+            VALUE "OriginalFilename",""
+            VALUE "ProductName","Custom MessageBox"
+            VALUE "ProductVersion","1.0"
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x009, 1252
+    END
+
+END

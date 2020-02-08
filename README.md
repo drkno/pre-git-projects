@@ -1,0 +1,1 @@
+These are projects from before I knew git (or what I was doing tbh). They are here both as a backup and in case someone else can learn from my mistakes.

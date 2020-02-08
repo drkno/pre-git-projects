@@ -1,0 +1,62 @@
+﻿<Window x:Class="COSMOS_Digital.Wind"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="COSMOS Digital" Height="230" Width="617" Loaded="WindowLoaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#FFF8F8F8" Icon="/COSMOS%20Digital;component/COSMOS-icon.ico">
+    <Grid>
+        <TabControl Name="tabController" Margin="-4,0,-5,-8">
+            <TabItem Header="Menu" Name="tabItemMenu">
+                <Grid Background="Black">
+                    <Button Height="100" HorizontalAlignment="Left" Margin="393,27,0,0" Name="buttonExit" VerticalAlignment="Top" Width="100" IsCancel="True" Click="ButtonExitClick" Background="#FF101010" BorderBrush="White" Content="Cs" FontWeight="Bold" FontSize="40" Foreground="#98FF0000" TabIndex="3"></Button>
+                    <Button Background="#FF101010" BorderBrush="White" Height="100" HorizontalAlignment="Left" IsCancel="True" Margin="243,27,0,0" Name="buttonGenerate" VerticalAlignment="Top" Width="100" Content="Gd" FontWeight="Bold" FontSize="40" Foreground="#98FF0000" Click="ButtonGenerateClick" TabIndex="2" />
+                    <Button Background="#FF101010" BorderBrush="White" Height="100" HorizontalAlignment="Left" IsCancel="True" Margin="95,27,0,0" Name="buttonSave" VerticalAlignment="Top" Width="100" Content="Si" FontWeight="Bold" FontSize="40" Foreground="#98FF0000" Click="ButtonSaveClick" TabIndex="1" />
+                    <Label Content="Save Images" Height="19" HorizontalAlignment="Left" Margin="115,128,0,0" Name="label1" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" Padding="0" Width="67" />
+                    <Label Background="{x:Null}" Content="Generate Download Links" Foreground="White" Height="19" HorizontalAlignment="Left" Margin="226,128,0,0" Name="label2" Padding="0" VerticalAlignment="Top" Width="138" />
+                    <Label Background="{x:Null}" Content="Close Program" Foreground="White" Height="19" HorizontalAlignment="Left" Margin="406,128,0,0" Name="label3" Padding="0" VerticalAlignment="Top" Width="80" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Save Images" Name="tabItemSave">
+                <Grid Background="LightGray">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4" />
+                        <ColumnDefinition Width="590" />
+                    </Grid.ColumnDefinitions>
+                    <Button Content="_Download and Save Images" Height="25" HorizontalAlignment="Left" Margin="392,124,0,0" Name="buttonDownload" VerticalAlignment="Top" Width="177" Click="ButtonDownloadClick" Grid.Column="1" />
+                    <Label Content="Issue No:" Foreground="Black" Height="28" HorizontalAlignment="Left" Margin="17,10,0,0" Name="label6" VerticalAlignment="Top" Grid.Column="1" />
+                    <Label Content="Total Pages:" Foreground="Black" Height="28" HorizontalAlignment="Left" Margin="16,34,0,0" Name="label7" VerticalAlignment="Top" Grid.Column="1" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="90,11,0,0" Name="textBoxIssueNo" VerticalAlignment="Top" Width="49" Grid.Column="1" TabIndex="1" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="90,36,0,0" Name="textBoxTotalPages" VerticalAlignment="Top" Width="49" Grid.Column="1" TabIndex="2" />
+                    <PasswordBox Height="23" HorizontalAlignment="Left" Margin="90,93,0,0" Name="textBoxPassword" VerticalAlignment="Top" Width="120" Grid.Column="1" TabIndex="4" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="90,67,0,0" Name="textBoxUsername" VerticalAlignment="Top" Width="120" Grid.Column="1" TabIndex="3" />
+                    <Label Content="Username:" Height="23" HorizontalAlignment="Left" Margin="16,67,0,0" Name="label8" VerticalAlignment="Top" Width="70" Grid.Column="1" />
+                    <Label Content="Password:" Height="23" HorizontalAlignment="Left" Margin="16,93,0,0" Name="label9" VerticalAlignment="Top" Width="70" Grid.Column="1" />
+                    <Separator Height="1" HorizontalAlignment="Left" Margin="19,63,0,0" Name="separator1" VerticalAlignment="Top" Width="191" Grid.Column="1" />
+                    <ProgressBar Height="26" HorizontalAlignment="Left" Margin="237,93,0,0" Name="progressBar" VerticalAlignment="Top" Width="332" Grid.Column="1" />
+                    <Label Content="0" Height="90" HorizontalAlignment="Left" Margin="231,-26,0,0" Name="labelCurrentNum" VerticalAlignment="Top" Width="161" FontSize="72" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Grid.Column="1" />
+                    <Label Content="0" FontSize="72" FontWeight="Bold" Height="90" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="411,-26,0,0" Name="labelTotal" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="165" Grid.Column="1" />
+                    <Label Content="/" FontSize="72" FontWeight="Bold" Height="97" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="377,-30,0,0" Name="label10" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="48" Grid.Column="1" />
+                    <Label Height="30" HorizontalAlignment="Left" Margin="237,65,0,0" Name="labelLoggedInAs" VerticalAlignment="Top" Width="332" Grid.Column="1" HorizontalContentAlignment="Center" />
+                    <TextBox Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="90,124,0,0" Name="textBoxLocation" VerticalAlignment="Top" Width="215" Text="" TabIndex="5" IsReadOnly="True" />
+                    <Separator Grid.Column="1" Height="1" HorizontalAlignment="Left" Margin="19,119,0,0" Name="separator2" VerticalAlignment="Top" Width="191" />
+                    <Label Content="Save To:" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="16,122,0,0" Name="label11" VerticalAlignment="Top" Width="70" />
+                    <Button Content="_Browse..." Grid.Column="1" Height="25" HorizontalAlignment="Left" Margin="311,124,0,0" Name="buttonBrowseForLocation" VerticalAlignment="Top" Width="75" Click="ButtonBrowseForLocationClick" />
+                    <CheckBox Content="Auto" Grid.Column="1" Height="21" HorizontalAlignment="Left" Margin="144,39,0,0" Name="checkBoxAuto" VerticalAlignment="Top" Width="46" Checked="CheckBoxAutoChecked" Unchecked="CheckBoxAutoChecked" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Generate Links" Name="tabItemGen">
+                <Grid Background="Black">
+                    <GroupBox Header="Parameters" Height="103" HorizontalAlignment="Left" Margin="3,31,0,0" Name="groupBox1" VerticalAlignment="Top" Width="143" Foreground="Cornsilk">
+                        <Grid>
+                            <Label Content="Issue No:" Height="28" HorizontalAlignment="Left" Name="label4" VerticalAlignment="Top" Margin="5,2,0,0" Foreground="Cornsilk" />
+                            <Label Content="Total Pages:" Height="28" HorizontalAlignment="Left" Margin="4,26,0,0" Name="label5" VerticalAlignment="Top" Foreground="Cornsilk" />
+                            <TextBox Height="23" HorizontalAlignment="Left" Margin="78,3,0,0" Name="textBoxIssueNum" VerticalAlignment="Top" Width="49" TabIndex="1" />
+                            <Button Content="Generate Links" Height="26" HorizontalAlignment="Left" Margin="6,53,0,0" Name="buttonGenerateLinks" VerticalAlignment="Top" Width="122" Click="ButtonGenerateLinksClick" TabIndex="3" />
+                            <TextBox Height="23" HorizontalAlignment="Left" Margin="78,28,0,0" Name="textBoxTotPages" VerticalAlignment="Top" Width="49" TabIndex="2" />
+                        </Grid>
+                    </GroupBox>
+                    <TextBox Margin="152,6,6,6" Name="textBoxLinks" Background="LightGray" AcceptsReturn="True" AcceptsTab="True" IsReadOnlyCaretVisible="False" IsReadOnly="True" IsManipulationEnabled="False" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" FontSize="10" FontStretch="Condensed" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Image Height="22" Margin="491,0,-9,0" Name="image1" Stretch="Uniform" VerticalAlignment="Top" Source="./cosmos.png" />
+    </Grid>
+</Window>

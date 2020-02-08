@@ -1,0 +1,9 @@
+*.*Temp
+*.o
+*/bin
+*/Debug
+*/ipch
+*/obj
+*.zip
+*.exe
+*.out

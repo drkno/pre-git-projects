@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1355961363 source:c:\users\matthew\documents\development\adobeblocker\main.cpp
+	<windows.h>
+	<fstream>
+	"resource.h"
+
+1325375733 c:\users\matthew\documents\development\adobeblocker\resource.h
+	<windows.h>
+
+1325376228 source:c:\users\matthew\documents\development\adobeblocker\resource.rc
+	"resource.h"
+

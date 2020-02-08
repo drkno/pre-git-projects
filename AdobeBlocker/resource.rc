@@ -1,0 +1,36 @@
+#include "resource.h"
+
+DLG_MAIN DIALOGEX 6, 5, 230, 50
+CAPTION "AdobeBlocker"
+FONT 8, "Tahoma"
+STYLE DS_SHELLFONT
+BEGIN
+  CONTROL "&Block Adobe", IDC_BTN_BLOCK, "Button", 0x10010000,40,25,60,15
+  CONTROL "&Quit", IDC_BTN_QUIT, "Button", 0x10010000,138,25,60,15
+END
+
+//MAINICON ICON "1.ico"
+1 VERSIONINFO
+FILEVERSION 1,0,0,0
+PRODUCTVERSION 1,0,0,0
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName","Knox Enterprises"
+            VALUE "FileDescription","Adobe Blocker"
+            VALUE "FileVersion","1.0"
+            VALUE "InternalName","AdobeBlocker Win32C++"
+            VALUE "LegalCopyright","Copyright © Matthew Knox 2011-Present. All rights reserved."
+            VALUE "OriginalFilename","AdobeBlocker.exe"
+            VALUE "ProductName","Adobe Blocker"
+            VALUE "ProductVersion","1.0"
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
