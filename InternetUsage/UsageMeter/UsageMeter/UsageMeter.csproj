@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{758ED63D-CECF-45F3-9D6E-2F93E5ED611C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UsageMeter</RootNamespace>
+    <AssemblyName>UsageMeter</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GUI\Crash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Crash.Designer.cs">
+      <DependentUpon>Crash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Phone\PhoneCallDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Phone\PhoneCallDisplay.designer.cs">
+      <DependentUpon>PhoneCallDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Usage\UsageBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Usage\UsageBar.Designer.cs">
+      <DependentUpon>UsageBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Usage\UsageDataDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Usage\UsageDataDisplay.designer.cs">
+      <DependentUpon>UsageDataDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Usage\UsageDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Usage\UsageDisplay.Designer.cs">
+      <DependentUpon>UsageDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Usage\UsageGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Usage\UsageGraph.Designer.cs">
+      <DependentUpon>UsageGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Retreivers\IInternetAndPhoneData.cs" />
+    <Compile Include="Retreivers\IInternetData.cs" />
+    <Compile Include="Retreivers\ILogin.cs" />
+    <Compile Include="Retreivers\Spark\Internet\SparkUsageDataParser.cs" />
+    <Compile Include="Retreivers\Spark\Phone\SparkPhoneCallParser.cs" />
+    <Compile Include="Retreivers\Spark\Phone\SparkPhoneOwnerLookup.cs" />
+    <Compile Include="Retreivers\Spark\Spark.cs" />
+    <Compile Include="Retreivers\Spark\SparkCommon.cs" />
+    <Compile Include="Retreivers\Spark\SparkLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Retreivers\Spark\SparkLogin.Designer.cs">
+      <DependentUpon>SparkLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usage.Designer.cs">
+      <DependentUpon>Usage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsageDoughnut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UsageDoughnut.Designer.cs">
+      <DependentUpon>UsageDoughnut.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUI\Crash.resx">
+      <DependentUpon>Crash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Phone\PhoneCallDisplay.resx">
+      <DependentUpon>PhoneCallDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Usage\UsageBar.resx">
+      <DependentUpon>UsageBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Usage\UsageDataDisplay.resx">
+      <DependentUpon>UsageDataDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Usage\UsageDisplay.resx">
+      <DependentUpon>UsageDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Usage\UsageGraph.resx">
+      <DependentUpon>UsageGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Retreivers\Spark\SparkLogin.resx">
+      <DependentUpon>SparkLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usage.resx">
+      <DependentUpon>Usage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsageDoughnut.resx">
+      <DependentUpon>UsageDoughnut.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <Content Include="icon.png" />
+    <Content Include="icon1.ico" />
+    <Content Include="icon2.ico" />
+    <Content Include="quit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Retreivers\TrustPower\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

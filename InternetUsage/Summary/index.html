@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Usage</title>
+		<script src="chart.min.js.php"></script>
+		<style>
+			body{
+				padding: 0;
+				margin: 0;
+                font-family:Arial,Helvetica,san-serif;
+			}
+			#canvas-holder{
+				width:100%;
+                text-align:center;
+			}
+            .center-page{
+                position:absolute;
+                left:50%;
+                top:50%;
+                transform: translate(-50%,-50%);
+            }
+            #usage-header{
+                text-align:center;
+                font-size:1.8em;
+                border-top:1px solid darkgray;
+                border-bottom:1px solid darkgray;
+                color:#666666;
+                padding:0.2em;
+            }
+            #usage-table{
+                width:300px;
+                font-size:0.8em;
+            }
+            #usage-table td{
+                width: 45%;
+            }
+            #usage-table th{
+                text-align: right;
+                padding-right: 1em;
+            }
+		</style>
+	</head>
+	<body>
+        <div class="center-page" id="load-content">
+            <span style="color:darkgray">Loading...</span>
+        </div>
+        <div class="center-page" id="main-content" style="display:none">
+            <table>
+                <tr>
+                    <td>
+                        <table id="usage-table">
+                            <tr>
+                                <td colspan="2" id="usage-header">
+                                    Usage
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Total Used</th>
+                                <td id="data-used">Loading...</td>
+                            </tr>
+                            <tr>
+                                <th>Total Remaining</th>
+                                <td id="data-remaining">Loading...</td>
+                            </tr>
+                            <tr>
+                                <th>Average Daily Usage</th>
+                                <td id="data-avusage">Loading...</td>
+                            </tr>
+                            <tr>
+                                <th>Avalible Per Day</th>
+                                <td id="data-avpday">Loading...</td>
+                            </tr>
+                            <tr>
+                                <th>Days Remaining</th>
+                                <td id="data-daysrem">Loading...</td>
+                            </tr>
+                            <tr>
+                                <th>Projected Days Left</th>
+                                <td id="data-daysproj">Loading...</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <div id="canvas-holder">
+                            <canvas id="chart-area" width="500" height="500"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    	<script>
+            function showError() {
+                document.getElementById('load-content').innerHTML = 'Failed to load data. Something went wrong somewhere.';
+            }
+
+            function updatePage(data) {
+                document.getElementById('load-content').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                var doughnutData = [
+    				{
+    					value: data.chart.monthly,
+    					color:"#F7464A",
+    					highlight: "#FF5A5E",
+    					label: "Monthly Data"
+    				},
+    				{
+    					value: data.chart.banked,
+    					color: "#46BFBD",
+    					highlight: "#5AD3D1",
+    					label: "Banked Data"
+    				},
+    				{
+    					value: data.chart.topup,
+    					color: "#FDB45C",
+    					highlight: "#FFC870",
+    					label: "Top-Up Data"
+    				},
+    				{
+    					value: data.chart.remaining,
+    					color: "#4D5360",
+    					highlight: "#616774",
+    					label: "Total Remaining"
+    				}
+    			];
+
+                var chart = document.getElementById("chart-area");
+    			var ctx = chart.getContext("2d");
+    			window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
+                    tooltipTemplate: '<%if (label){%><%=label%>, <%}%><%=value%>GB',
+                    responsive : true,
+                    onAnimationComplete: function() {
+                        window.myDoughnut.showTooltip(window.myDoughnut.segments, true);
+                    }
+                });
+                chart.addEventListener('mouseenter', function() {
+                    window.myDoughnut.showTooltip(window.myDoughnut.segments, true);
+                });
+                chart.addEventListener('mouseleave', function() {
+                    window.myDoughnut.showTooltip(window.myDoughnut.segments, true);
+                });
+
+                var keys = Object.keys(data.table);
+                for (var i = 0; i < keys.length; i++) {
+                    var elem = document.getElementById('data-' + keys[i]);
+                    var item = data.table[keys[i]];
+
+                    var newValue = item.value + (item.unit ? ' ' + item.unit : '');
+                    elem.innerHTML = newValue;
+                }
+            }
+
+            window.onload = function() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "./data.php", true);
+                xhr.onload = function (e) {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            updatePage(JSON.parse(xhr.responseText));
+                        } else {
+                            showError();
+                        }
+                    }
+                };
+                xhr.onerror = function (e) {
+                    showError();
+                };
+                xhr.send(null);
+            };
+    	</script>
+	</body>
+</html>
